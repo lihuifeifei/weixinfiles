@@ -1,4 +1,5 @@
 // pages/shop/cart/cart.js
+var app = getApp();
 Page({
 
   /**
@@ -8,34 +9,16 @@ Page({
     "selectedAllStatus":false,
     "total": 0,
     "carts": [
-      {
-        "goods": {
-          "avatar"
-            :
-            "http://img14.360buyimg.com/n7/jfs/t2494/324/1615617468/268135/1677b798/56cd80c5N06181c58.jpg",
-          "title": "this",
-          "price": 656,
-
-        },
-        "quantity": 12,
-        "selected": true,
-        "id": 1,
-        "selected": true
-      },
-      {
-        "goods": {
-          "avatar"
-            :
-            "http://img14.360buyimg.com/n7/jfs/t2494/324/1615617468/268135/1677b798/56cd80c5N06181c58.jpg",
-          "title": "this",
-          "price": 656,
-
-        },
-        "quantity": 12,
-        "selected": true,
-        "id": 2,
-        "selected": false
-      }
+      // {
+      //   "img":
+      //       "http://img14.360buyimg.com/n7/jfs/t2494/324/1615617468/268135/1677b798/56cd80c5N06181c58.jpg",
+      //   "name": "this",
+      //   "price": 656,
+      //   "num": 12,
+      //   "selected": true,
+      //   "id": 1,
+      //   "selected": true
+      // }
     ]
   },
   onLoad: function (options) {
@@ -53,9 +36,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.prefix_url + "/car/listByCustomer/1",
+      success: function (res) {
+        // console.log(res);
+        that.setData({
+          "carts": res.data.data
+        })
+      }
+    });
     this.setData({
       "total": countTotal(this.data.carts)
-    })
+    });
   },
 
   /**
@@ -92,16 +85,17 @@ Page({
   onShareAppMessage: function () {
 
   },
+  // 数量减少按钮
   bindMinus: function (e) {
-    //console.log(e);
+    // console.log(e);
     var id = e.currentTarget.dataset.id;
     //console.log(id);
     var cats = this.data.carts;
     //console.log(cats);
     for (var i = 0; i < cats.length; i++) {
       if (cats[i].id == id) {
-        cats[i].quantity--;
-        if (cats[i].quantity < 0) cats[i].quantity = 0;
+        cats[i].num--;
+        if (cats[i].num< 0) cats[i].num = 0;
         break;
       }
     }
@@ -110,6 +104,7 @@ Page({
       "total": countTotal(this.data.carts)
     })
   },
+  // 复选框选择事件
   bindCheckbox: function (e) {
     var id = e.currentTarget.dataset.id;
     var cats = this.data.carts;
@@ -125,6 +120,7 @@ Page({
     });
 
   },
+  //数量增加按钮
   bindPlus: function (e) {
     //console.log(e);
     var id = e.currentTarget.dataset.id;
@@ -133,7 +129,7 @@ Page({
     //console.log(cats);
     for (var i = 0; i < cats.length; i++) {
       if (cats[i].id == id) {
-        cats[i].quantity++;
+        cats[i].num++;
         break;
       }
     }
@@ -143,6 +139,7 @@ Page({
 
     })
   },
+  //全选按钮
   selectAll: function () {
     var cats = this.data.carts;
     for (var i = 0; i < cats.length; i++){
@@ -156,17 +153,17 @@ Page({
     })
   }
 })
-
+//计算总价函数
 function countTotal(cats) {
   var p = 0;
   for (var i = 0; i < cats.length; i++) {
     if (cats[i].selected) {
-      p += cats[i].goods.price * cats[i].quantity;
+      p += cats[i].price * cats[i].num;
     }
   }
   return p;
 }
-
+//判断是否全部选中状态
 function isALlChecked(cats){
   var flag = true;
   for (var i = 0; i < cats.length; i++) {

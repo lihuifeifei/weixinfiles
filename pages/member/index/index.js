@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    "avatar":"/images/avatar.jpg",
+    "username":"登录"
   },
   //点击关于我们跳转到aboutus页面
   aboutUs:function(){
@@ -13,6 +14,7 @@ Page({
       url: '/pages/member/aboutus/aboutus',
     })
   },
+  //点击登录跳转到授权页面
   login:function(){
     wx.navigateTo({
       url: '/pages/login/login',

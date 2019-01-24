@@ -1,4 +1,3 @@
-// pages/login/login.js
 var app = getApp();
 Page({
 
@@ -25,7 +24,7 @@ Page({
               that.queryUsreInfo();
               //用户已经授权过
               wx.switchTab({
-                url: ''
+                url: '/pages/member/index/index'
               })
             }
           });
@@ -39,7 +38,7 @@ Page({
       var that = this;
       //插入登录的用户的相关信息到数据库
       wx.request({
-        url: app.globalData.prefix_url + '/swjtu/login/getSession',
+        url: app.globalData.prefix_url + '/login/getSession',
         data: {
           openid: getApp().globalData.openid,
           nickName: e.detail.userInfo.nickName,
@@ -58,7 +57,7 @@ Page({
       });
       //授权成功后，跳转进入小程序首页
       wx.switchTab({
-        url: ''
+        url: '/pages/member/index/index'
       })
     } else {
       //用户按了拒绝按钮
@@ -78,7 +77,7 @@ Page({
   //获取用户信息接口
   queryUsreInfo: function () {
     wx.request({
-      url: app.globalData.prefix_url + 'POST /swjtu/login/getSession',
+      url: app.globalData.prefix_url + '/login/getSession',
       data: {
         openid: getApp().globalData.openid
       },

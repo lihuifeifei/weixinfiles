@@ -1,6 +1,6 @@
 <view class="userinfo">
-	<image class="userinfo-avatar" src="/images/avatar.jpg" background-size="cover" bindtap="chooseImage"></image>
-	<text class="userinfo-nickname" bindtap="login">登录</text>
+	<image class="userinfo-avatar" src="{{avatar}}" background-size="cover" bindtap="chooseImage"></image>
+	<text class="userinfo-nickname" bindtap="login">{{username}}</text>
 </view>
 <view class="order-area">
 	<view bindtap="navigateToOrder" class="order" data-status="0">

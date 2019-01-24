@@ -1,7 +1,10 @@
 <view class="userinfo">
 	<image class="userinfo-avatar" src="{{avatar}}" background-size="cover" bindtap="chooseImage"></image>
-	<text class="userinfo-nickname" bindtap="login">{{username}}</text>
+	<text class="userinfo-nickname" >{{username}}</text>
 </view>
+    <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        一键登录
+    </button>
 <view class="order-area">
 	<view bindtap="navigateToOrder" class="order" data-status="0">
 		<image src="../../../images/icon_order.png" />

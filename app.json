@@ -13,8 +13,7 @@
    "pages/admin/dashboard/dashboard",
   "pages/admin/order/order",
   "pages/order/checkout/checkout",
-  "pages/order/payment/payment",
-  "pages/login/login"
+  "pages/order/payment/payment"
   ],
   "window": {
     "navigationBarBackgroundColor": "#48c23d",

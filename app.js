@@ -10,8 +10,8 @@ App({
     // 登录
     wx.login({
      success:function(res){
-       console.log("login success");
-       console.log(res);
+      //  console.log("login success");
+      //  console.log(res);
      }
     })
     // 获取用户信息

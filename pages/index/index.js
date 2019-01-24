@@ -61,7 +61,7 @@ Page({
     wx.request({
       url: app.globalData.prefix_url+"/goods/listAll",
       success:function(res){
-        console.log(res);
+        // console.log(res);
         that.setData({
           "goods": res.data.data
         }
@@ -72,7 +72,7 @@ Page({
     wx.request({
       url: app.globalData.prefix_url + "/goods/getRotationChart",
       success: function (res) {
-        console.log(res);
+        // console.log(res);
         that.setData({
           "banner": res.data.data
         }

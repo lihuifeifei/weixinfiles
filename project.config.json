@@ -13,7 +13,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
-	"appid": "wx3d6af2407109fb19",
+	"appid": "wx3ec76f16caa8064d",
 	"projectname": "weixinfiles",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 15,
+			"current": 19,
 			"list": [
 				{
 					"id": -1,
@@ -134,6 +134,29 @@
 					"name": "catalogue/catalogue",
 					"pathName": "pages/catalogue/catalogue",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "admin/login/login",
+					"pathName": "pages/admin/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "admin/dashboard/dashboard",
+					"pathName": "pages/admin/dashboard/dashboard",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "admin/order/order",
+					"pathName": "pages/admin/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login/login",
+					"pathName": "pages/login/login"
 				}
 			]
 		}

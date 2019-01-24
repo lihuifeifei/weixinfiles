@@ -7,7 +7,17 @@ Page({
   data: {
 
   },
-
+  //点击关于我们跳转到aboutus页面
+  aboutUs:function(){
+    wx.navigateTo({
+      url: '/pages/member/aboutus/aboutus',
+    })
+  },
+  login:function(){
+    wx.navigateTo({
+      url: '/pages/login/login',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
